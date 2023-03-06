@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import students from "../data/Students";
+import {ReactComponent as Search} from '../assets/svgs/search.svg'
+
 // import Dialog from "./Dialog";
 import Graded from "./Graded";
 import NonGraded from "./NonGraded";
-function StudentGrading({fun}) {
-  let [graded, setGraded] = useState(false);
+function StudentGrading() {
+  let [graded, setGraded] = useState(true);
   
   const toggleGraded = () => {
     setGraded(!graded);
   };
-
-  let newstudents = [];
+ 
+    let newstudents = [];
   if (graded) {
     newstudents = students.filter((person) => person.graded === true);
   } else {
@@ -19,6 +21,7 @@ function StudentGrading({fun}) {
 
   return (
     <div className="m-6 bg-white rounded-md py-3 h-1/2 overflow-y-scroll ">
+      {/* Button of graded and non graded and a search bar */}
       <div className="px-5 py-5 flex justify-between items-center">
         <div className="">
           <ul className="flex items-center">
@@ -46,35 +49,16 @@ function StudentGrading({fun}) {
         </div>
         <div className="flex bg-bgGrey  items-center gap-4 rounded-full py-1 ">
           <div className="pl-3">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.33334 13.3333C10.647 13.3333 13.3333 10.647 13.3333 7.33333C13.3333 4.01962 10.647 1.33333 7.33334 1.33333C4.01963 1.33333 1.33334 4.01962 1.33334 7.33333C1.33334 10.647 4.01963 13.3333 7.33334 13.3333Z"
-                stroke="#565659"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M12.62 13.7932C12.9733 14.8599 13.78 14.9665 14.4 14.0332C14.9666 13.1799 14.5933 12.4799 13.5666 12.4799C12.8066 12.4732 12.38 13.0665 12.62 13.7932Z"
-                stroke="#565659"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+           <Search/>
           </div>
 
           <input placeholder="Search" className="bg-transparent py-1 " />
         </div>
       </div>
-      {graded && <Graded />}
+     
+       <Graded students={newstudents} graded={graded}/>
 
-      {/* Non graded */}
-      {!graded && <NonGraded fun={fun} />}
+      
       
     </div>
   );
