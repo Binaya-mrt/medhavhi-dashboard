@@ -58,7 +58,8 @@ function StudentGrading() {
      
        <Graded students={newstudents} graded={graded}/>
 
-      
+      {/* Non graded */}
+      {/* {!graded && <NonGraded fun={fun} />} */}
       
     </div>
   );

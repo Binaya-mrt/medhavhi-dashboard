@@ -71,7 +71,7 @@ function  Dashboard({closePopup,student}) {
 <div>
           <p className="text-spanishGray ">Grade Obtained</p>
           <div className="flex items-center gap-4">
-            <input className="text-3xl px-10 text-center py-3 border-b border-b-black border-b-3 w-44 " value={student?.grade} />
+            <input className={`${student.grade===''?"text-md":'text-3xl'} px-9 text-center placeholder:text-md py-3 border-b border-b-black border-b-3 w-44 `} value={student?.grade}  placeholder={`Enter grade here`} />
             <div className=" p-6 rounded-md bg-spanishGray/10 text-center text-xl"><p className="text-black text-sm">Out of <span>10</span></p></div>
           </div>
 
@@ -85,7 +85,8 @@ function  Dashboard({closePopup,student}) {
 {/* Button section */}
 <div className="flex items-center justify-end gap-4 mx-4 my-6">
   <button className="border-none text-red-600"> Ask for resubmission</button>
-  <button className=" text-white rounded-full px-5 py-2 bg-primaryblue">Edit Grade</button>
+
+  <button className=" text-white rounded-full px-5 py-2 bg-primaryblue">{student.grade===''?'Grade':'Edit Grade'}</button>
 
 </div>
           </div>

@@ -41,13 +41,19 @@ function Graded({students,graded}) {
             </p>
           </div>
         </div>
-        <button onClick={handleOpenPopup} className=" w-32 text-center bg-mediumgreen rounded-md text-white py-3 ">
+        {
+          graded?<button onClick={handleOpenPopup} className=" w-32 text-center bg-mediumgreen rounded-md text-white py-3 ">
          
           <p className="text-sm">Graded</p>
           <p>{student?.grade}/10</p>
-        </button>
+        </button>: <div className="text-center w-32 bg-primaryblue rounded-md text-white py-3">
+          <button className="text-sm" onClick={handleOpenPopup}>
+            Grade
+          </button>
+        </div>  }
+        
          {isOpen && (
-        <Popup onClose={handleClosePopup} student={student} onClick={handlePopupClick}>
+        <Popup onClose={handleClosePopup}  student={student} onClick={handlePopupClick}>
     
         </Popup>
       )}
@@ -57,3 +63,10 @@ function Graded({students,graded}) {
 }
 
 export default Graded;
+
+
+//<button onClick={handleOpenPopup} className=" w-32 text-center bg-mediumgreen rounded-md text-white py-3 ">
+         
+        //   <p className="text-sm">Graded</p>
+        //   <p>{student?.grade}/10</p>
+        // </button>
