@@ -1,13 +1,14 @@
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
+import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
-    <div className="flex">
-      <Sidebar />
-
-      <Topbar />
-      {/* top navbar ko vitra assignment hunxa */}
-    </div>
+    <BrowserRouter>
+      <div className="flex">
+        <Sidebar />
+        <Topbar />
+      </div>
+    </BrowserRouter>
   );
 }
 

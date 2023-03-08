@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import students from "../data/Students";
-import {ReactComponent as Search} from '../assets/svgs/search.svg'
+import { ReactComponent as Search } from "../assets/svgs/search.svg";
 
 // import Dialog from "./Dialog";
 import Graded from "./Graded";
-import NonGraded from "./NonGraded";
+// import NonGraded from "./NonGraded";
 function StudentGrading() {
   let [graded, setGraded] = useState(true);
-  
+
   const toggleGraded = () => {
     setGraded(!graded);
   };
- 
-    let newstudents = [];
+
+  let newstudents = [];
   if (graded) {
     newstudents = students.filter((person) => person.graded === true);
   } else {
@@ -49,18 +49,17 @@ function StudentGrading() {
         </div>
         <div className="flex bg-bgGrey  items-center gap-4 rounded-full py-1 ">
           <div className="pl-3">
-           <Search/>
+            <Search />
           </div>
 
           <input placeholder="Search" className="bg-transparent py-1 " />
         </div>
       </div>
-     
-       <Graded students={newstudents} graded={graded}/>
+
+      <Graded students={newstudents} graded={graded} />
 
       {/* Non graded */}
       {/* {!graded && <NonGraded fun={fun} />} */}
-      
     </div>
   );
 }

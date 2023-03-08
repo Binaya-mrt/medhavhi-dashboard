@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Counterdiv from "./widgets/Counterdiv";
 import { ReactComponent as Dashboard } from "../assets/svgs/dashboard.svg";
 import { ReactComponent as Classes } from "../assets/svgs/classes.svg";
@@ -13,43 +13,57 @@ import { ReactComponent as Logout } from "../assets/svgs/logout.svg";
 import { ReactComponent as Test } from "../assets/svgs/test.svg";
 import { ReactComponent as Report } from "../assets/svgs/reports.svg";
 
+import { Link } from "react-router-dom";
+
 function NavComponent() {
+  const[active,setActive]=useState('dashboard');
+  const activeTab=(active)=>{
+    setActive(active);
+  }
   return (
+    // bg-primaryblue text-white rounded-md my-2
     <div className="mt-10 m-5 flex justify-between flex-col ">
       <ul className="">
-        <li className=" ">
-          <button>
+        <li className={active==='dashboard'?'bg-primaryblue text-white rounded-md my-2':' my-2 mx-1'}>
+          <Link to={'/'}> <button onClick={()=>activeTab('dashboard')}>
             <div className="flex justify-between items-center gap-3 py-2 px-2 ">
               <Dashboard />
               <p>Dashboard</p>
             </div>
-          </button>
+          </button></Link>
+         
         </li>
-        <li className=" bg-primaryblue text-white rounded-md my-2 ">
-          <button className>
+        <li className={active==='class'?'bg-primaryblue text-white rounded-md my-2':'my-2'}>
+          <Link to={'/class'}>
+          <button onClick={()=>activeTab('class')}>
             <div className="flex justify-start items-center gap-3 py-2 px-2 ">
               <Classes />
               <p>Classes</p>
             </div>
           </button>
+          </Link>
         </li>
-        <li className="my-2">
-          <button>
+        <li className={active==='attendance'?'bg-primaryblue text-white rounded-md my-2':'my-2 '} >
+          <Link to={'/attendance'}>
+          <button onClick={()=>activeTab('attendance')}>
             <div className="flex justify-between items-center gap-3  py-2 px-2">
               <Attendance />
 
               <p>Attendance</p>
             </div>
           </button>
+          </Link>
         </li>
-        <li className="my-2">
-          <button>
+        <li className={active==='test'?'bg-primaryblue text-white rounded-md my-2':'my-2 '}>
+          <Link to={'/test'}>          <button onClick={()=>activeTab('test')}>
             <div className="flex justify-between items-center gap-3 py-2 px-2">
               <Test />
 
               <p>Test</p>
             </div>
           </button>
+          </Link>
+
         </li>
         <li className="my-2">
           <button>
@@ -89,6 +103,7 @@ function NavComponent() {
         </li>
         <li className="my-2">
           <button>
+          
             <div className="flex justify-between items-center gap-3 py-2 px-2">
               <Schedule />
 

@@ -4,8 +4,8 @@ import UserCircleAvatar from "./widgets/UserCircleAvatar";
 import users from "../data/Users";
 import AssignmentDetail from "../data/Assignment";
 
-import {ReactComponent as DueDate} from '../assets/svgs/sandclock.svg'
-import {ReactComponent as Download} from '../assets/svgs/download.svg'
+import { ReactComponent as DueDate } from "../assets/svgs/sandclock.svg";
+import { ReactComponent as Download } from "../assets/svgs/download.svg";
 function Assignment() {
   return (
     <div className="m-6 bg-white rounded-md py-3">
@@ -29,7 +29,7 @@ function Assignment() {
           </div>
         </div>
         <div className="flex gap-1 items-center justify-between border border-mediumgreen  rounded-xl pr-2">
-         <DueDate/>
+          <DueDate />
           <p className="text-sm text-mediumgreen">{AssignmentDetail.dueDate}</p>
         </div>
       </div>
@@ -42,7 +42,7 @@ function Assignment() {
           <p className="text-sm">{AssignmentDetail.filetitle}</p>
           <p className="text-[#9A9A9A] text-sm">{AssignmentDetail.filesize}</p>
         </div>
-        <Download/>
+        <Download />
       </div>
     </div>
   );

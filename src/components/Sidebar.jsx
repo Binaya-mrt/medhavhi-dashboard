@@ -13,4 +13,4 @@ function sidebar() {
 
 export default sidebar;
 //bg-white pt-5 z-10 text-jetPrimary basis-auto grow-0 shrink-0 overflow-auto h-screen
-// 
+//
